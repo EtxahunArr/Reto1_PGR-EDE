@@ -1,24 +1,16 @@
 package retocClase;
-// Paquete donde está el programa.
 
 import java.util.Scanner;
-// Permite leer datos del teclado.
 
 public class proyecto3 {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        // Creamos el Scanner.
-
-
-        // FECHA ACTUAL
 
         int diaActual;
         int mesActual;
         int anioActual;
-        // Guardamos el día, mes y año de hoy.
-
 
         do {
             System.out.print("Introduce el día: ");
@@ -29,7 +21,6 @@ public class proyecto3 {
             }
 
         } while (diaActual < 1 || diaActual > 31);
-        // El día debe estar entre 1 y 31.
 
 
         do {
@@ -41,7 +32,6 @@ public class proyecto3 {
             }
 
         } while (mesActual < 1 || mesActual > 12);
-        // El mes debe estar entre 1 y 12.
 
 
         do {
@@ -53,28 +43,14 @@ public class proyecto3 {
             }
 
         } while (anioActual < 0);
-        // El año no puede ser negativo.
 
-
-        // CONTADORES
 
         int necesitanRevision = 0;
-        // Cuenta bicicletas que necesitan revisión.
-
         int noNecesitanRevision = 0;
-        // Cuenta bicicletas que NO necesitan revisión.
-
         char continuar;
-        // Guardará S o N.
 
-
-        // REGISTRAMOS BICICLETAS
 
         do {
-        // Este do while permite registrar una o varias bicicletas.
-
-
-            // IDENTIFICACIÓN
 
             int id;
 
@@ -87,15 +63,11 @@ public class proyecto3 {
                 }
 
             } while (id < 0);
-            // El ID no puede ser negativo.
 
-
-            // FECHA DE LA ÚLTIMA REVISIÓN
 
             int diaRevision;
             int mesRevision;
             int anioRevision;
-            // Guardamos la fecha de la última revisión.
 
 
             do {
@@ -129,60 +101,41 @@ public class proyecto3 {
                 }
 
             } while (anioRevision < 0 || anioRevision > anioActual);
-            // La revisión no puede ser de un año futuro.
 
-
-            // ¿NECESITA REVISIÓN?
 
             boolean necesitaRevision = false;
-            // Empezamos suponiendo que NO necesita revisión.
 
 
             if (anioActual - anioRevision > 1) {
 
                 necesitaRevision = true;
-                // Si han pasado más de un año,
-                // necesita revisión.
 
             } else if (anioActual - anioRevision == 1) {
-
-                // Ha pasado exactamente un año.
-                // Ahora miramos el mes.
 
                 if (mesActual > mesRevision) {
 
                     necesitaRevision = true;
-                    // El mes actual ya ha pasado el mes de la revisión.
 
-                } else if (mesActual == mesRevision
-                        && diaActual > diaRevision) {
+                } else if (mesActual == mesRevision && diaActual > diaRevision) {
 
                     necesitaRevision = true;
-                    // Mismo mes, pero el día actual es posterior.
-
                 }
             }
 
-
-            // RESULTADO
 
             if (necesitaRevision) {
 
                 System.out.println("Esta bicicleta necesita revisión.");
 
-                necesitanRevision++;
-                // Sumamos 1 al contador.
+                necesitanRevision = necesitanRevision + 1;
 
             } else {
 
                 System.out.println("Esta bicicleta NO necesita revisión.");
 
-                noNecesitanRevision++;
-                // Sumamos 1 al otro contador.
+                noNecesitanRevision = noNecesitanRevision + 1;
             }
 
-
-            // ¿OTRA BICICLETA?
 
             do {
 
@@ -195,15 +148,10 @@ public class proyecto3 {
                 }
 
             } while (continuar != 'S' && continuar != 'N');
-            // Solo acepta S o N.
 
 
         } while (continuar == 'S');
-        // Si escribe S, vuelve a registrar otra bicicleta.
-        // Si escribe N, termina.
 
-
-        // RESULTADOS FINALES
 
         System.out.println("Bicicletas que necesitan revisión: "
                 + necesitanRevision);
@@ -213,6 +161,6 @@ public class proyecto3 {
 
 
         sc.close();
-        // Cerramos el Scanner.
     }
 }
+
