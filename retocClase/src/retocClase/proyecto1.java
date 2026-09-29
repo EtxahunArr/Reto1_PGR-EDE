@@ -1,4 +1,3 @@
-```java
 package retocClase;
 
 import java.util.Scanner;
@@ -168,4 +167,3 @@ public class proyecto1 {
         sc.close();
     }
 }
-```
