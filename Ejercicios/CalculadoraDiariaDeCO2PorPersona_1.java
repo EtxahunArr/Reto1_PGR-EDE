@@ -22,9 +22,15 @@ public class CalculadoraDiariaDeCO2PorPersona_1 {
         	System.out.println("Cuantas personas se registrarán?");
         	if (teclado.hasNextInt()) {
 				grupo = teclado.nextInt();
-				break;
+				
+				if (grupo > 0) {
+					break;
+				} else {
+					System.out.println("Introduzca un numero positivo");
+				}
+
 			} else {
-				System.out.println("Introduzca un numero");
+				System.out.println("Introduzca un numero entero");
 				teclado.next();
 			}
 		}
