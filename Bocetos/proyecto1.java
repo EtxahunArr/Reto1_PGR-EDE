@@ -1,0 +1,169 @@
+package retocClase;
+
+import java.util.Scanner;
+
+public class proyecto1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int personas;
+
+        do {
+            System.out.print("¿Cuántas personas se van a registrar? ");
+            personas = sc.nextInt();
+
+            if (personas <= 0) {
+                System.out.println("Error. Introduce un número mayor que 0.");
+            }
+
+        } while (personas <= 0);
+
+        double co2TotalGrupo = 0;
+
+        for (int i = 1; i <= personas; i++) {
+
+            System.out.println("\n===== PERSONA " + i + " =====");
+
+            double co2Persona = 0;
+            int opcion;
+
+            do {
+                System.out.println("\n1. Transporte en coche");
+                System.out.println("2. Transporte en autobús");
+                System.out.println("3. Transporte en bicicleta");
+                System.out.println("4. Uso de plancha");
+                System.out.println("5. Uso del ordenador");
+                System.out.println("6. Uso del móvil");
+                System.out.println("7. Finalizar actividades");
+
+                System.out.print("Elige una opción: ");
+                opcion = sc.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        double kmCoche;
+
+                        do {
+                            System.out.print("¿Cuántos km has recorrido en coche? ");
+                            kmCoche = sc.nextDouble();
+
+                            if (kmCoche < 0) {
+                                System.out.println("Error. No puede ser negativo.");
+                            }
+                        } while (kmCoche < 0);
+
+                        co2Persona += kmCoche * 0.21;
+                        break;
+
+                    case 2:
+                        double kmBus;
+
+                        do {
+                            System.out.print("¿Cuántos km has recorrido en autobús? ");
+                            kmBus = sc.nextDouble();
+
+                            if (kmBus < 0) {
+                                System.out.println("Error. No puede ser negativo.");
+                            }
+                        } while (kmBus < 0);
+
+                        co2Persona += kmBus * 0.10;
+                        break;
+
+                    case 3:
+                        double kmBici;
+
+                        do {
+                            System.out.print("¿Cuántos km has recorrido en bicicleta? ");
+                            kmBici = sc.nextDouble();
+
+                            if (kmBici < 0) {
+                                System.out.println("Error. No puede ser negativo.");
+                            }
+                        } while (kmBici < 0);
+
+                        break;
+
+                    case 4:
+                        int plancha;
+
+                        do {
+                            System.out.print("¿Has utilizado la plancha? (1 = sí, 0 = no): ");
+                            plancha = sc.nextInt();
+
+                            if (plancha != 0 && plancha != 1) {
+                                System.out.println("Error. Introduce 1 o 0.");
+                            }
+                        } while (plancha != 0 && plancha != 1);
+
+                        if (plancha == 1) {
+                            double horasPlancha;
+
+                            do {
+                                System.out.print("¿Cuántas horas has utilizado la plancha? ");
+                                horasPlancha = sc.nextDouble();
+
+                                if (horasPlancha < 0) {
+                                    System.out.println("Error. No puede ser negativo.");
+                                }
+                            } while (horasPlancha < 0);
+
+                            co2Persona += horasPlancha * 0.70;
+                        }
+
+                        break;
+
+                    case 5:
+                        double horasOrdenador;
+
+                        do {
+                            System.out.print("¿Cuántas horas has utilizado el ordenador? ");
+                            horasOrdenador = sc.nextDouble();
+
+                            if (horasOrdenador < 0) {
+                                System.out.println("Error. No puede ser negativo.");
+                            }
+                        } while (horasOrdenador < 0);
+
+                        co2Persona += horasOrdenador * 0.08;
+                        break;
+
+                    case 6:
+                        double horasMovil;
+
+                        do {
+                            System.out.print("¿Cuántas horas has utilizado el móvil? ");
+                            horasMovil = sc.nextDouble();
+
+                            if (horasMovil < 0) {
+                                System.out.println("Error. No puede ser negativo.");
+                            }
+                        } while (horasMovil < 0);
+
+                        co2Persona += horasMovil * 0.02;
+                        break;
+
+                    case 7:
+                        System.out.println("Finalizando actividades...");
+                        break;
+
+                    default:
+                        System.out.println("Error. Esa opción no existe.");
+                }
+
+            } while (opcion != 7);
+
+            System.out.printf("CO2 emitido por la persona %d: %.2f kg%n",
+                    i, co2Persona);
+
+            co2TotalGrupo += co2Persona;
+        }
+
+        System.out.printf("%nCO2 total del grupo: %.2f kg%n", co2TotalGrupo);
+
+        sc.close();
+    }
+}
