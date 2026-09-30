@@ -10,7 +10,7 @@ public class proyecto3 {
 
         int diaActual;
         int mesActual;
-        int anioActual;
+        int añoActual;
 
         do {
             System.out.print("Introduce el día: ");
@@ -36,13 +36,13 @@ public class proyecto3 {
 
         do {
             System.out.print("Introduce el año: ");
-            anioActual = sc.nextInt();
+            añoActual = sc.nextInt();
 
-            if (anioActual < 0) {
+            if (añoActual < 0) {
                 System.out.println("Error. El año no puede ser negativo.");
             }
 
-        } while (anioActual < 0);
+        } while (añoActual < 0);
 
 
         int necesitanRevision = 0;
@@ -67,7 +67,7 @@ public class proyecto3 {
 
             int diaRevision;
             int mesRevision;
-            int anioRevision;
+            int añoRevision;
 
 
             do {
@@ -94,23 +94,23 @@ public class proyecto3 {
 
             do {
                 System.out.print("Año: ");
-                anioRevision = sc.nextInt();
+                añoRevision = sc.nextInt();
 
-                if (anioRevision < 0 || anioRevision > anioActual) {
+                if (añoRevision < 0 || añoRevision > añoActual) {
                     System.out.println("Error. Introduce un año válido.");
                 }
 
-            } while (anioRevision < 0 || anioRevision > anioActual);
+            } while (añoRevision < 0 || añoRevision > añoActual);
 
 
             boolean necesitaRevision = false;
 
 
-            if (anioActual - anioRevision > 1) {
+            if (añoActual - añoRevision > 1) {
 
                 necesitaRevision = true;
 
-            } else if (anioActual - anioRevision == 1) {
+            } else if (añoActual - añoRevision == 1) {
 
                 if (mesActual > mesRevision) {
 
